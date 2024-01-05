@@ -1,0 +1,18 @@
+sistem informasi perpustakaan berbasis web using laravel
+
+1. 2 jenis hak user(admin dan penyewa)
+2. buku bisa memiliki multiple category
+3. 1 buku bisa berjumlah lebih dari satu(dibedakan dgn kode buku)
+4.list buku bisa diliat tanpa harus login
+5. bisa melakukan pencarian buku melalui judul/kategori
+6. untuk meminjam buku,user harus membuat akun sebagai penyewa
+7. pengunjung bisa register sebagai penyewa,tapi harus di approve oleh admin(cek validasi manual)
+  next update -> validasi bisa dilakukan secara otomatis/by sistem
+
+8.admin mempunyai tugas : menambah data buku,assign kategori ke buku
+9. penyewa dapat maksimal meminjam/menyewa 3 buku
+10. waktu pinjam maksimal 7 hari
+11. admin bisa meliat list buku yang sedang dipinjam
+12. admin bisa meliat peminjam yg terkena denda(apabila lebih dari 7 hari belum dikembalikan)
+13. admin bisa meliat log peminjaman buku
+

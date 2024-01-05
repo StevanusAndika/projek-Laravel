@@ -1,0 +1,13 @@
+1.admin
+ username:admin
+ pass: Admin123
+bycript pass: $2y$10$z2iE1gIkQWC2mo33B1vPbuWEQozH8WixSu.l/Okl/YMyouPr2yqPa
+
+2.User
+username : akuuser(inactive)
+pass :Usertest
+bycript: $2y$10$a7u29Ht3QIAnWDy58rNW0exf139WvRVAQC1SFgRR0GOi1koHYmnbK
+
+ username:user2(Aktif)
+ pass:slayerDemon@123
+bcript : $2y$10$ht7LUqS1VjySFmhcnHkCdO7KIlRtmnPY71ZoTtq7Mo3V1Pgc/HhQW
