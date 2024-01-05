@@ -7,60 +7,101 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## # Sistem Informasi Perpustakaan Berbasis Web Menggunakan Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Deskripsi Proyek
+Proyek ini adalah implementasi sistem informasi perpustakaan berbasis web menggunakan framework Laravel. Sistem ini memiliki dua jenis hak akses pengguna, yaitu admin dan penyewa. Berikut adalah beberapa fitur dan aturan dalam sistem:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Hak Akses Pengguna
+1. Admin dan penyewa adalah dua jenis hak akses pengguna dalam sistem.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Kategori Buku
+2. Setiap buku dapat memiliki beberapa kategori yang berbeda.
 
-## Learning Laravel
+### Jumlah Buku
+3. Satu buku dapat memiliki jumlah lebih dari satu, dengan perbedaan diidentifikasi oleh kode buku.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Tampilan List Buku
+4. List buku dapat dilihat tanpa perlu melakukan login.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Pencarian Buku
+5. Pengguna dapat melakukan pencarian buku berdasarkan judul atau kategori.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Peminjaman Buku
+6. Untuk meminjam buku, pengguna harus membuat akun sebagai penyewa.
 
-## Laravel Sponsors
+### Registrasi Penyewa
+7. Pengunjung dapat mendaftar sebagai penyewa, tetapi akun harus diapprove oleh admin melalui validasi manual.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### Tugas Admin
+8. Admin memiliki tugas untuk menambahkan data buku dan mengassign kategori ke buku.
 
-### Premium Partners
+### Batasan Penyewa
+9. Penyewa hanya dapat meminjam/menyewa maksimal 3 buku.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+### Waktu Peminjaman
+10. Waktu peminjaman maksimal adalah 7 hari.
 
-## Contributing
+### List Buku yang Sedang Dipinjam
+11. Admin dapat melihat list buku yang sedang dipinjam.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Denda Keterlambatan Pengembalian
+12. Admin dapat melihat penyewa yang terkena denda apabila buku belum dikembalikan dalam waktu lebih dari 7 hari.
 
-## Code of Conduct
+### Log Peminjaman
+13. Admin memiliki akses untuk melihat log peminjaman buku.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Cara instalasi/penggunaan :
+1. **Instalasi Laravel:**
+   Pastikan Anda sudah menginstal Laravel. Jika belum, gunakan perintah berikut di terminal:
+   ```bash
+   composer create-project --prefer-dist laravel/laravel nama-proyek-perpustakaan
+   ```
 
-## Security Vulnerabilities
+2. **Instalasi Debugbar:**
+   Install Debugbar dengan menggunakan Composer:
+   ```bash
+   composer require barryvdh/laravel-debugbar --dev
+   ```
+   Kemudian, sesuaikan konfigurasi di file `config/app.php`:
+   ```php
+   'providers' => [
+       // ...
+       Barryvdh\Debugbar\ServiceProvider::class,
+   ],
+   'aliases' => [
+       // ...
+       'Debugbar' => Barryvdh\Debugbar\Facade::class,
+   ],
+   ```
+   Ikuti petunjuk konfigurasi di [Medium](https://adinata-id.medium.com/cara-mudah-debug-aplikasi-laravel-dengan-laravel-debugbar-db0fdac5c8dd).
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+3. **Instalasi Select2:**
+   Tambahkan link CDN Select2 di file layout atau template Anda:
+   ```html
+   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+   ```
+   Lalu, ikuti petunjuk instalasi dari [Select2 Documentation](https://select2.org/getting-started/installation).
 
-## License
+4. **Instalasi Bootstrap 5:**
+   Tambahkan link CDN Bootstrap di file layout atau template Anda:
+   ```html
+   <!-- CSS -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+   <!-- JS -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+   ```
+   cara penggunaan dan komponen Bootstrap dari [Dokumentasi Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/).
+
+5. **XAMPP:**
+   Unduh dan instal XAMPP dari [situs resmi](https://www.apachefriends.org/download.html). Pastikan sudah menyertakan PHP 8.2.4 dan MySQL.
+
+6. **Desain Tampilan Web:**
+   Desain tampilan web sesuai kebutuhan sistem informasi perpustakaan. Gunakan Blade templates pada Laravel untuk mempermudah pengelolaan tampilan.
+
+7. **Pengembangan Fungsionalitas:**
+   Tambahkan logika dan fungsionalitas yang diperlukan seperti manajemen buku, peminjaman, pengembalian, dan pencarian.
+
+Pastikan untuk menjalankan migrasi dan menyesuaikan model dan controller sesuai kebutuhan aplikasi perpustakaan. Juga, pertimbangkan keamanan dengan melarang akses tanpa otentikasi untuk beberapa bagian sistem.
